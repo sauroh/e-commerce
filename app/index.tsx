@@ -3,21 +3,27 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import products from "../assets/products.json";
 import ProductListItem from "../components/ProductListItem";
+import { Button, ButtonText } from "@/components/ui/button";
 
 
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ProductListItem product={item} />}
-        keyExtractor={(item) => item.id.toString()}
-      />
+    <Button variant="outline">
+      <ButtonText>Click me</ButtonText>
+    </Button>
+  )
+  // return (
+  //   <View style={styles.container}>
+  //     <FlatList
+  //       data={products}
+  //       renderItem={({ item }) => <ProductListItem product={item} />}
+  //       keyExtractor={(item) => item.id.toString()}
+  //     />
 
-      <StatusBar style="auto" />
-    </View>
-  );
+  //     <StatusBar style="auto" />
+  //   </View>
+  // );
 }   
 
 const styles = StyleSheet.create({
