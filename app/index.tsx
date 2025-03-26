@@ -1,15 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import products from "../assets/products.json";
+import ProductListItem from "../components/ProductListItem";
+
+
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <FlatList
+        data={products}
+        renderItem={({ item }) => <ProductListItem product={item} />}
+        keyExtractor={(item) => item.id.toString()}
+      />
+
       <StatusBar style="auto" />
     </View>
   );
-}   // This is the HomeScreen component that will be rendered when the app starts. It is a simple component that displays a text "Hello World!" in the center of the screen.
+}   
 
 const styles = StyleSheet.create({
   container: {
@@ -18,4 +27,4 @@ const styles = StyleSheet.create({
     alignItems: "center" as const,
     justifyContent: "center" as const,
   },
-});   // This is the style object that defines the styles for the container View. It sets the background color to white, aligns the content in the center horizontally and vertically, and justifies the content in the center horizontally and vertically.
+});   
