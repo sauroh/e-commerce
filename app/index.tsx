@@ -1,29 +1,23 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import products from "../assets/products.json";
 import ProductListItem from "../components/ProductListItem";
-import { Button, ButtonText } from "@/components/ui/button";
-
 
 
 export default function HomeScreen() {
   return (
-    <Button variant="outline">
-      <ButtonText>Click me</ButtonText>
-    </Button>
-  )
-  // return (
-  //   <View style={styles.container}>
-  //     <FlatList
-  //       data={products}
-  //       renderItem={({ item }) => <ProductListItem product={item} />}
-  //       keyExtractor={(item) => item.id.toString()}
-  //     />
-
-  //     <StatusBar style="auto" />
-  //   </View>
-  // );
+   
+      <FlatList
+        data={products}
+        numColumns={2}
+        contentContainerClassName="gap-2"
+        columnWrapperClassName="gap-2"
+        renderItem={({ item }) => <ProductListItem product={item} />}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    
+  );
 }   
 
 const styles = StyleSheet.create({
