@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { Text } from "@/components/ui/text";
 import { Link } from "expo-router";
-import { Pressable } from "react-native";
+import { Pressable, useWindowDimensions } from "react-native";
 
 interface Product {
     image: string | undefined;
@@ -15,12 +15,14 @@ interface Product {
   }
   
   export default function ProductListItem({ product }: { product: Product }) {
+
+    
+    
     return (
-      
        // removed m-3 margin from card and set it index.ts flatlist using contentContainerClassName
       <Link href={`/product/${product.id}`} asChild>
       <Pressable className="flex-1">
-      <Card className="p-5 rounded-lg max-w-[360px] flex-1"> 
+      <Card className="p-5 rounded-lg flex-1"> 
      
       <Image
         source={{

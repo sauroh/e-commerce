@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from "@/components/ui/text";
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import products from "@/assets/products.json";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
@@ -18,7 +18,9 @@ export default function ProductDetailsScreen() {
   }
 
   return (
-    <Card className="p-5 rounded-lg max-w-[560px] flex-1"> 
+    <Box className='flex-1 items-center p-3'>
+      <Stack.Screen options={{ title: product.name }} />
+    <Card className="p-5 rounded-lg  max-w-[960px] w-full flex-1"> 
      
       <Image
         source={{
@@ -53,6 +55,7 @@ export default function ProductDetailsScreen() {
         </Button>
       </Box>
     </Card>
+    </Box>
   );
 }
 // Compare this snippet from e-commerce/app/index.tsx:
